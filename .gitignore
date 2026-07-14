@@ -1,0 +1,17 @@
+# Node / dashboard
+dashboard/node_modules/
+dashboard/dist/
+
+# Python
+python-service/**/__pycache__/
+python-service/**/*.pyc
+python-service/.venv/
+
+# Go
+go-service/server
+
+# Env secrets
+.env
+
+# OS junk
+.DS_Store
