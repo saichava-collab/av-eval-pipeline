@@ -196,25 +196,6 @@ runs end to end with zero cloud setup. To export for real:
 - `dashboard` served from S3 + CloudFront, or as a small ECS service
   behind the same ALB.
 
-## Design notes / what backs the resume claims
-
-- **Sub-150ms P95 query latency:** driven by (a) composite indexes on
-  `(scenario_id, status)` and `executed_at DESC` in `db/init.sql`, (b) a
-  pooled `pgxpool` connection pool sized for concurrent dashboard
-  traffic, and (c) aggregation pushed into Postgres (`COUNT ... FILTER`)
-  rather than pulled into application code. Measure it yourself with
-  `scripts/measure_p95_latency.py` after seeding a realistic row count.
-- **Parallel evaluation across 10,000+ scenario variants:** the Python
-  orchestrator generates and evaluates the full variant set in memory,
-  then fans ingestion out across `PARALLEL_INGEST_WORKERS` concurrent
-  chunks (`asyncio.Semaphore`-bounded) of `INGEST_CHUNK_SIZE` rows each,
-  and the Go side uses `CopyFrom` for each chunk instead of row-by-row
-  `INSERT`s.
-- **Reducing manual evaluation turnaround time:** the entire
-  simulate → evaluate → ingest → export path is one API call
-  (`POST /api/v1/evaluate`) instead of a human running scripts and
-  manually compiling a pass/fail report.
-
 ## Repository layout
 
 ```
