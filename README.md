@@ -1,8 +1,5 @@
 # Autonomous Driving Evaluation & Simulation Pipeline
 
-
-## Architecture
-
 ```
                      ┌─────────────────────────┐
                      │   React Dashboard        │
