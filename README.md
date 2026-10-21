@@ -1,10 +1,5 @@
 # Autonomous Driving Evaluation & Simulation Pipeline
 
-A distributed test execution and reporting pipeline for simulated
-autonomous-driving scenario data. It ingests, evaluates, and analyzes
-scenario-variant runs at scale, with a low-latency operational store for
-live dashboards and warehouse exports for historical analytics.
-
 
 ## Architecture
 
