@@ -1,7 +1,7 @@
 # Autonomous Driving Evaluation & Simulation Pipeline
 
 
-## Architecture
+## Arch
 
 ```
                      ┌─────────────────────────┐
