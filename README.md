@@ -5,7 +5,6 @@ autonomous-driving scenario data. It ingests, evaluates, and analyzes
 scenario-variant runs at scale, with a low-latency operational store for
 live dashboards and warehouse exports for historical analytics.
 
-**Stack:** Go, Python (FastAPI), PostgreSQL, BigQuery, Redshift, AWS, Docker, React
 
 ## Architecture
 
